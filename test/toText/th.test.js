@@ -63,4 +63,20 @@ describe('toThText', () => {
       });
     });
   });
+  describe('others', () => {
+    const num = [1234567890, 101000000, 1000000000, 22000000000000];
+    const text = [
+      'หนึ่งพันสองร้อยสามสิบสี่ล้านห้าแสนหกหมื่นเจ็ดพันแปดร้อยเก้าสิบ',
+      'หนึ่งร้อยเอ็ดล้าน',
+      'หนึ่งพันล้าน',
+      'ยี่สิบสองล้านล้าน',
+    ];
+    _.map(text, (t, index) => {
+      it(`should return "${t}" when number is ${num[index]}`, () => {
+        const input = num[index];
+        const expectedValue = t;
+        expect(toText(input)).toEqual(expectedValue);
+      });
+    });
+  });
 });
