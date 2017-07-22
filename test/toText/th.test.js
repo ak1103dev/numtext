@@ -48,4 +48,19 @@ describe('toThText', () => {
       });
     });
   });
+  describe('the millions', () => {
+    const text = [
+      'หนึ่งล้าน', 'สองล้าน', 'สามล้าน', 'สี่ล้าน', 'ห้าล้าน', 'หกล้าน', 'เจ็ดล้าน', 'แปดล้าน', 'เก้าล้าน',
+    ];
+    const num = [
+      1, 2, 3, 4, 5, 6, 7, 8, 9,
+    ].map(n => n * 1000000);
+    _.map(text, (t, index) => {
+      it(`should return "${t}" when number is ${num[index]}`, () => {
+        const input = num[index];
+        const expectedValue = t;
+        expect(toText(input)).toEqual(expectedValue);
+      });
+    });
+  });
 });
