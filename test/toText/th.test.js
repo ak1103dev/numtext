@@ -31,4 +31,21 @@ describe('toThText', () => {
       });
     });
   });
+  describe('the hundreds', () => {
+    const text = [
+      'หนึ่งร้อย', 'สองร้อย', 'สามร้อย', 'สี่ร้อย', 'ห้าร้อย', 'หกร้อย', 'เจ็ดร้อย', 'แปดร้อย', 'เก้าร้อย',
+      'หนึ่งร้อยเอ็ด', 'สองร้อยสี่สิบแปด', 'เจ็ดร้อยแปด', 'เก้าร้อยเก้าสิบ',
+    ];
+    const num = [
+      100, 200, 300, 400, 500, 600, 700, 800, 900,
+      101, 248, 708, 990,
+    ];
+    _.map(text, (t, index) => {
+      it(`should return "${t}" when number is ${num[index]}`, () => {
+        const input = num[index];
+        const expectedValue = t;
+        expect(toText(input)).toEqual(expectedValue);
+      });
+    });
+  });
 });
